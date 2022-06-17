@@ -10,18 +10,18 @@ function new_exercise() {
 
 }
 new_exercise(2);
-// variable monday is array [0] for "monday" in array
+// variable $monday has to be [0] for "monday" in array
 $week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 $monday = $week[0];
 
 echo $monday;
 
 new_exercise(3);
-// === Exercise 3 ===
-// This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
+// for a string you have to have "" or ''
+$str = '` "Debugged !" `  Also very fun" `';
 
-$str = ``“Debugged ! Also very fun”;
-echo substr($str, 0, 10);
+// for a substr choose where you start(offset) and your length
+echo substr($str, 0, 16);
 
 
 
