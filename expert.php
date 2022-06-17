@@ -30,6 +30,7 @@ new_exercise(4);
 // The print_r($week) should give:  Array ( [0] => mon [1] => tues [2] => wednes [3] => thurs [4] => fri [5] => satur [6] => sun )
 // Look up whats going wrong with this code, and then fix it, with ONE CHARACTER!
 
+//added & to $day
 foreach($week as &$day) {
     $day = substr($day, 0, strlen($day)-3);
 }
@@ -41,6 +42,7 @@ new_exercise(5);
 // Fix the code so the for loop only pushes a-z in the array
 
 $arr = [];
+// added foreach with range instead of for loop
 foreach(range('a','z')as $letter){
     array_push($arr, $letter);
 }
@@ -62,6 +64,7 @@ function combineNames($str1 = "", $str2 = "") {
             $param = randomHeroName();
         }
     }
+    // changed implode: first separetor and then array
     return implode(" - ", $params);
 }
 
@@ -77,9 +80,9 @@ function randomGenerate($arr, $amount) {
 function randomHeroName()
 {
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
-    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"]; // added ;
     $heroes = [$hero_firstnames, $hero_lastnames];
-    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)]; // -1 because of arrays have 11 elements
 
     return $randname;
 }
@@ -87,12 +90,31 @@ function randomHeroName()
 echo "Here is the name: " .combineNames();
 
 new_exercise(7);
-
+//no int but string for date format
 function copyright(string $year) {
     return "&copy; $year BeCode";
 }
 //print the copyright
 echo copyright(date('Y'));
+
+new_exercise(8);
+function login(string $email, string $password) {
+    //changed the || for && because they both have to be the same for the login
+    if($email === 'john@example.be' && $password === 'pocahontas') {
+        echo 'Welcome John';
+        echo ' Smith';
+    }else
+    return ' No access';
+}
+
+//do not change anything below
+//should great the user with his full name (John Smith)
+echo login('john@example.be', 'pocahontas');
+//no access
+echo login('john@example.be', 'dfgidfgdfg');
+//no access
+echo login('wrong@example.be', 'wrong');
+//you can change things again!
 
 
 
