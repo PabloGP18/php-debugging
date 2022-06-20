@@ -101,8 +101,8 @@ new_exercise(8);
 function login(string $email, string $password) {
     //changed the || for && because they both have to be the same for the login
     if($email === 'john@example.be' && $password === 'pocahontas') {
-        echo 'Welcome John';
-        echo ' Smith';
+        return 'Welcome John Smith';
+        // only possible to return 1 time in function
     }else
     return ' No access';
 }
@@ -116,6 +116,39 @@ echo login('john@example.be', 'dfgidfgdfg');
 echo login('wrong@example.be', 'wrong');
 //you can change things again!
 
+new_exercise(9);
+function isLinkValid(string $link) {
+    $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
+
+    foreach ($unacceptables as $unacceptable) {
+        if (strpos($link, $unacceptable) !== false) {
+            echo 'Unacceptable Found<br />';
+            return;
+        }
+    }
+    echo 'Acceptable<br />';
+}
+//invalid link
+isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+isLinkValid('https://google.com');
+//VALID link
+isLinkValid('http://google.com');
+//VALID link
+isLinkValid('http://google.com/test.txt');
 
 
+new_exercise(10);
+
+//Filter the array $areTheseFruits to only contain valid fruits
+//do not change the arrays itself
+$areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
+$validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
+//from here on you can change the code
+for($i=0, $j= count($areTheseFruits); $i < $j; $i++) {
+    if(!in_array($areTheseFruits[$i], $validFruits)) {
+        unset($areTheseFruits[$i]);
+    }
+}
+var_dump($areTheseFruits);//do not change this
 
